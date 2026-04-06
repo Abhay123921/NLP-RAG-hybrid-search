@@ -1,0 +1,22 @@
+# Virtual environment
+venv/
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Data (large files)
+data/raw.csv
+data/*.zip
+
+# Processed files
+processed/*.pkl
+processed/*.index
+processed/faiss.index
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
