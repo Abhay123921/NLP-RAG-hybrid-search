@@ -4,6 +4,18 @@ An end-to-end **production-style Retrieval-Augmented Generation (RAG) system** w
 
 ---
 
+## 📌 System Architecture
+
+<p align="center">
+  <img src="system_architecture.png" width="700"/>
+</p>
+
+<p align="center">
+  <em>Figure: Adaptive Query Routing + Hybrid Retrieval + RAG Pipeline</em>
+</p>
+
+
+
 ## 🚀 Key Features
 
 * 🔀 **Intent-Aware Query Routing**
