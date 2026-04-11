@@ -200,31 +200,3 @@ M.Tech (Machine Learning & Data Science), ISI Kolkata
 
 
 
-## 🏗️ System Architecture
-
-```mermaid
-flowchart TD
-    A[User Query] --> B[Intent Classifier]
-
-    B -->|Simple| C[TF-IDF Retrieval]
-    B -->|Semantic| D[Hybrid Search (TF-IDF + FAISS)]
-    B -->|Complex| E[RAG Pipeline]
-
-    D --> F[Top-K Documents]
-    C --> F
-    E --> F
-
-    F --> G[Answer Generation]
-
-    G --> H[Quality Score]
-    G --> I[Faithfulness Score]
-
-    H --> J[Trust Score]
-    I --> J
-
-    J --> K{Decision}
-
-    K -->|High Trust| L[Return Answer]
-    K -->|Low Trust| M[Abstain]
-
-    M --> N[Log Failure (Feedback Loop)]
