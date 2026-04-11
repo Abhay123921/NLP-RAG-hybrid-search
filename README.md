@@ -8,8 +8,6 @@ An end-to-end **production-style Retrieval-Augmented Generation (RAG) system** w
 
 The following diagram illustrates the complete pipeline of the intelligent RAG system, including query routing, hybrid retrieval, and reliability mechanisms.
 
-<p align="center"> <img src="assets/system_architecture.png" alt="RAG Architecture" width="700"/> </p> <p align="center"> <em>Figure: Intelligent RAG architecture with cost-aware query routing, hybrid retrieval, confidence-based fallback, and feedback loop.</em> </p>
-
 <p align="center">
   <img src="system_architecture.png" width="700"/>
 </p>
