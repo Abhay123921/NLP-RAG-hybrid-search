@@ -18,3 +18,10 @@ def load_data():
         })
 
     return documents
+
+def load_failures(path="logs/failures.json"):
+    try:
+        with open(path, "r") as f:
+            return json.load(f)
+    except:
+        return []

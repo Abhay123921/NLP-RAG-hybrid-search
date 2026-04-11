@@ -1,0 +1,120 @@
+[
+  {
+    "query": "how to reset password",
+    "answer": "New Delhi, The most common password was '123456' and a hacker would probably take less than a second to crack it, according to a study conducted by NordPass, a software company that helps users organ\u2026 [+2613 chars]. </li><li>You'll also see a new option to \"skip password when possible\" in y\u2026 [+2421 chars]",
+    "confidence": 0.8006965756416321,
+    "quality": 0.6453446745872498,
+    "faithfulness": 0.5813788175582886,
+    "hallucination": 0.5,
+    "failure": null
+  },
+  {
+    "query": "what is machine learning",
+    "answer": "The human brain is superior to artificial intelligence (AI) machine learning in its ability to grasp new combinations and apply them towards comprehending related uses of known components. Spotted: The use of artificial intelligence (AI) and machine learning is growing by leaps and bounds, but so is the energy it uses",
+    "confidence": 0.9426217436790466,
+    "quality": 0.6416338086128235,
+    "faith": 0.5665352940559387,
+    "hallucination": 0.5,
+    "trust_score": 0.792127788066864
+  },
+  {
+    "query": "random nonsense xyz",
+    "answer": "Welcome to our column, \"Hey, Quick Question,\" where we investigate seemingly random happenings in the fashion and beauty industries. Indie studio XYZ Films has promoted Maxime Cottray to the role of Chief Operating Officer (COO)",
+    "confidence": 0.687850546836853,
+    "quality": 0.3257058560848236,
+    "faith": 0.3988233208656311,
+    "hallucination": 1.0,
+    "trust_score": 0.5067781805992126,
+    "reason": "low_trust"
+  },
+  {
+    "query": "asdfgh",
+    "answer": "The African Solidarity Fund (ASF) mission is currently in the country for a seven-day visit to interact with different stakeholders in the private and government sectors on how to provide various fin\u2026 [+2658 chars]. GlideFast Consulting, a leading provider of digital transformation and service management solutions around the ServiceNow platform as part of the ASGN brand (NYSE: ASGN), is thrilled to announce its \u2026 [+3946 chars]",
+    "confidence": 0.8433434009552002,
+    "quality": 0.6414218544960022,
+    "faith": 0.5656874775886536,
+    "hallucination": 0.5,
+    "trust_score": 0.7423826456069946,
+    "reason": "low_trust"
+  },
+  {
+    "query": "fake query 123",
+    "answer": "The web browser Firefox will warn users when they're looking at fake reviews online. One third of all commercials I see on youtube are outright fake",
+    "confidence": 0.7347447752952576,
+    "quality": 0.5857066512107849,
+    "faith": 0.496426522731781,
+    "hallucination": 0.5,
+    "trust_score": 0.6602257490158081,
+    "reason": "low_trust"
+  },
+  {
+    "query": "random garbage input",
+    "answer": "UN researchers have warned that humanity is edging perilously close to irreversible tipping points on a variety of fronts, including the steep growth of space garbage and the emptying of underground \u2026 [+6344 chars]. Hackers love random numbers, or more accurately, the pursuit of them",
+    "confidence": 0.6549731135368347,
+    "quality": 0.607672393321991,
+    "faith": 0.46268972754478455,
+    "hallucination": 0.5,
+    "trust_score": 0.6313227415084839,
+    "reason": "low_trust"
+  },
+  {
+    "query": "qwerty ai ml nonsense",
+    "answer": "MLOps CRPO, Senior Solution Architect, VESSL AI CEO, MLOps , ML , AI , AI CEO, AI Developer Technology \u2026 [+59 chars]. She has more than 100 papers and patents on ML",
+    "confidence": 0.8965840339660645,
+    "quality": 0.594113826751709,
+    "faith": 0.4916554391384125,
+    "hallucination": 0.5,
+    "trust_score": 0.7453489303588867,
+    "reason": "low_trust"
+  },
+  {
+    "query": "asdfgh",
+    "answer": "The African Solidarity Fund (ASF) mission is currently in the country for a seven-day visit to interact with different stakeholders in the private and government sectors on how to provide various fin\u2026 [+2658 chars]. GlideFast Consulting, a leading provider of digital transformation and service management solutions around the ServiceNow platform as part of the ASGN brand (NYSE: ASGN), is thrilled to announce its \u2026 [+3946 chars]",
+    "confidence": 0.8433434009552002,
+    "quality": 0.6414218544960022,
+    "faith": 0.5656874775886536,
+    "hallucination": 0.5,
+    "trust_score": 0.7423826456069946,
+    "reason": "low_trust"
+  },
+  {
+    "query": "unknown thing",
+    "answer": "Last night I had a nightmare about some unknown group of people who were going after me for some unspecified thing that I did, and eventually I realized that they were going to arrest me and I would \u2026 [+12351 chars]. See it in action right now ! Unknown words are underlined in red, Seen in yellow and Known in green",
+    "confidence": 0.9121994614601135,
+    "quality": 0.6239978671073914,
+    "faith": 0.49599140882492065,
+    "hallucination": 0.5,
+    "trust_score": 0.7680986523628235,
+    "reason": "low_trust"
+  },
+  {
+    "query": "fake query 123",
+    "answer": "The web browser Firefox will warn users when they're looking at fake reviews online. One third of all commercials I see on youtube are outright fake",
+    "confidence": 0.7347447752952576,
+    "quality": 0.5857066512107849,
+    "faith": 0.496426522731781,
+    "hallucination": 0.5,
+    "trust_score": 0.6602257490158081,
+    "reason": "low_trust"
+  },
+  {
+    "query": "random garbage input",
+    "answer": "UN researchers have warned that humanity is edging perilously close to irreversible tipping points on a variety of fronts, including the steep growth of space garbage and the emptying of underground \u2026 [+6344 chars]. Hackers love random numbers, or more accurately, the pursuit of them",
+    "confidence": 0.6549731135368347,
+    "quality": 0.607672393321991,
+    "faith": 0.46268972754478455,
+    "hallucination": 0.5,
+    "trust_score": 0.6313227415084839,
+    "reason": "low_trust"
+  },
+  {
+    "query": "qwerty ai ml nonsense",
+    "answer": "MLOps CRPO, Senior Solution Architect, VESSL AI CEO, MLOps , ML , AI , AI CEO, AI Developer Technology \u2026 [+59 chars]. She has more than 100 papers and patents on ML",
+    "confidence": 0.8965840339660645,
+    "quality": 0.594113826751709,
+    "faith": 0.4916554391384125,
+    "hallucination": 0.5,
+    "trust_score": 0.7453489303588867,
+    "reason": "low_trust"
+  }
+]

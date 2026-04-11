@@ -1,0 +1,114 @@
+[
+  {
+    "query": "how machines learn from data",
+    "ground_truth_answer": "Machines learn from data by identifying patterns and improving performance using algorithms.",
+    "relevant_docs": ["22202_0","25729_0","20649_0"],
+    "query_type": "definition",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "methods to train AI models",
+    "ground_truth_answer": "AI models are trained using supervised, unsupervised, and reinforcement learning techniques.",
+    "relevant_docs": ["92955_0","27741_0","90596_0","73505_0"],
+    "query_type": "conceptual",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "deep learning neural networks",
+    "ground_truth_answer": "Deep learning uses multi-layer neural networks to model complex patterns in data.",
+    "relevant_docs": ["19579_0","14168_0"],
+    "query_type": "definition",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "industery",
+    "ground_truth_answer": "",
+    "relevant_docs": ["85624_0","28073_0","4485_0"],
+    "query_type": "ambiguous",
+    "is_faithful": false,
+    "is_complete": false
+  },
+  {
+    "query": "automobile industry",
+    "ground_truth_answer": "The automobile industry involves the design, manufacturing, and sale of vehicles.",
+    "relevant_docs": ["75384_0","101046_0","66345_0"],
+    "query_type": "general",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "data science statistics",
+    "ground_truth_answer": "Data science uses statistical methods to analyze data and extract insights.",
+    "relevant_docs": ["80885_0","102695_0"],
+    "query_type": "conceptual",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "WHO",
+    "ground_truth_answer": "WHO refers to the World Health Organization, a global health agency.",
+    "relevant_docs": ["30096_0","30395_0","22919_0"],
+    "query_type": "entity",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "global warming",
+    "ground_truth_answer": "Global warming refers to the increase in Earth's average temperature due to greenhouse gases.",
+    "relevant_docs": ["4763_0","29290_0","101755_0"],
+    "query_type": "general",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "natural language processing",
+    "ground_truth_answer": "Natural language processing is a field of AI that enables computers to understand and process human language.",
+    "relevant_docs": ["32488_0","35162_0"],
+    "query_type": "definition",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "cyber security attacks",
+    "ground_truth_answer": "Cyber security attacks include phishing, malware, and ransomware targeting systems and data.",
+    "relevant_docs": ["79517_0","43519_0","9519_0"],
+    "query_type": "general",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "India Israels",
+    "ground_truth_answer": "India and Israel share diplomatic, defense, and technological relations.",
+    "relevant_docs": ["71983_0","48388_0"],
+    "query_type": "semantic",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "Gaza",
+    "ground_truth_answer": "Gaza is a region in the Middle East, often associated with geopolitical conflicts.",
+    "relevant_docs": ["18006_0","27095_0","12947_0"],
+    "query_type": "entity",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "cricket",
+    "ground_truth_answer": "Cricket is a bat-and-ball sport played between two teams.",
+    "relevant_docs": ["90392_0","53252_0","18629_0","91292_0"],
+    "query_type": "general",
+    "is_faithful": true,
+    "is_complete": true
+  },
+  {
+    "query": "Health and fitness",
+    "ground_truth_answer": "Health and fitness involve maintaining physical and mental well-being through exercise and lifestyle.",
+    "relevant_docs": ["26524_0","23958_0","33694_0","33682_0"],
+    "query_type": "general",
+    "is_faithful": true,
+    "is_complete": true
+  }
+]

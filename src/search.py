@@ -38,5 +38,5 @@ def run_search():
 
 
 if __name__ == "__main__":
-    # build_index()
+    build_index()
     run_search()

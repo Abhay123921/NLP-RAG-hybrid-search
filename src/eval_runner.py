@@ -1,15 +1,28 @@
 from src.eval import precision_at_k, mean_reciprocal_rank
 from src.tf_idf import TfidfRetriever
 from src.hybrid_search import HybridSearch
-from src.test_query import TEST_QUERIES
+from src.eval_dataset import load_eval_dataset
 
 
-def evaluate_system(name, search_fn):
+
+def hallucination_rate(outputs):
+    total = len(outputs)
+    hall = sum(1 for o in outputs if o.get("hallucination", 0) > 0)
+    return hall / total if total else 0
+
+
+def evaluate_system(name, search_fn, dataset):
     p_total = 0
     mrr_total = 0
+    abstain_count = 0
+    outputs = []
 
-    for q in TEST_QUERIES:
+    for q in dataset:
         results = search_fn(q["query"])
+
+        if len(results) == 0:
+            abstain_count += 1
+            continue
 
         p = precision_at_k(results, q["relevant_docs"], k=5)
         mrr = mean_reciprocal_rank(results, q["relevant_docs"])
@@ -17,12 +30,23 @@ def evaluate_system(name, search_fn):
         p_total += p
         mrr_total += mrr
 
-    n = len(TEST_QUERIES)
+        outputs.append({
+            "results": results,
+            "relevant_docs": q["relevant_docs"]
+        })
 
-    return round(p_total/n, 3), round(mrr_total/n, 3)
+    n = len(dataset)
+
+    return {
+        "precision@5": round(p_total / n, 3),
+        "mrr": round(mrr_total / n, 3),
+        "abstention_rate": round(abstain_count / n, 3)
+    }
 
 
 def run_evaluation():
+    dataset = load_eval_dataset()
+
     # TF-IDF
     tfidf = TfidfRetriever()
     tfidf.load()
@@ -30,29 +54,30 @@ def run_evaluation():
     def tfidf_search(q):
         return tfidf.search(q, top_k=5)
 
-    # Hybrid (without query expansion)
+    # Hybrid
     hybrid = HybridSearch(alpha=0.6)
 
     def hybrid_search(q):
-        return hybrid.search(q, top_k=5, use_expansion=False)
+        results, _ = hybrid.search(q, top_k=5, use_expansion=False)
+        return results
 
-    # 🔥 Hybrid + Query Expansion (NEW)
     def hybrid_expanded_search(q):
-        return hybrid.search(q, top_k=5, use_expansion=True)
+        results, _ = hybrid.search(q, top_k=5, use_expansion=True)
+        return results
 
     print("\n🔹 Evaluating TF-IDF...")
-    p1, mrr1 = evaluate_system("TF-IDF", tfidf_search)
+    r1 = evaluate_system("TF-IDF", tfidf_search, dataset)
 
     print("\n🔹 Evaluating Hybrid...")
-    p2, mrr2 = evaluate_system("Hybrid", hybrid_search)
+    r2 = evaluate_system("Hybrid", hybrid_search, dataset)
 
     print("\n🔹 Evaluating Hybrid + Query Expansion...")
-    p3, mrr3 = evaluate_system("Hybrid+QE", hybrid_expanded_search)
+    r3 = evaluate_system("Hybrid+QE", hybrid_expanded_search, dataset)
 
     print("\n===== FINAL RESULTS =====")
-    print(f"TF-IDF        → Precision@5: {p1}, MRR: {mrr1}")
-    print(f"Hybrid        → Precision@5: {p2}, MRR: {mrr2}")
-    print(f"Hybrid + QE   → Precision@5: {p3}, MRR: {mrr3}")
+    print(f"TF-IDF        → {r1}")
+    print(f"Hybrid        → {r2}")
+    print(f"Hybrid + QE   → {r3}")
 
 
 if __name__ == "__main__":
