@@ -1,135 +1,154 @@
-# 🧠 Intelligent Search System with Cost-Aware Query Routing
+# 🧠 Intelligent RAG System with Cost-Aware Query Routing
 
-## 🚀 Overview
-
-This project implements a **production-style Retrieval-Augmented Generation (RAG) system** with **intent-aware query routing** to optimize search relevance, latency, and computational cost.
-
-Instead of applying the same retrieval pipeline to all queries, the system dynamically selects the most efficient strategy based on query complexity.
+An end-to-end **production-style Retrieval-Augmented Generation (RAG) system** with intelligent query routing, hybrid retrieval, and reliability-aware decision making.
 
 ---
 
-## 🎯 Key Features
+## 🚀 Key Features
 
-* 🔍 **Hybrid Retrieval System**
+* 🔀 **Intent-Aware Query Routing**
 
-  * TF-IDF (lexical search)
-  * FAISS with dense embeddings (semantic search)
+  * Classifies queries into *simple*, *semantic*, and *complex*
+  * Dynamically routes to TF-IDF, Hybrid Search, or RAG
+
+* 🔎 **Hybrid Retrieval (TF-IDF + FAISS)**
+
+  * Combines lexical and semantic search
+  * Uses score normalization + weighted fusion
+
+* 🧠 **Query Expansion**
+
+  * Expands queries using domain-specific heuristics
+  * Improves recall for semantic queries
+
+* ⚡ **Cost-Aware Execution**
+
+  * Avoids expensive RAG calls for simple queries
+  * Reduces latency via adaptive routing
 
 * 🤖 **RAG Pipeline**
 
-  * Retrieves top-K documents
-  * Generates context-aware responses (LLM-ready architecture)
+  * Retrieves relevant chunks
+  * Generates extractive answers
+  * Avoids hallucination using quality checks
 
-* 🧠 **Intent-Aware Query Routing**
+* 🛡️ **Reliability Layer (CORE CONTRIBUTION)**
 
-  * Classifies queries into:
+  * Faithfulness scoring
+  * Hallucination detection
+  * Trust score-based decision making
+  * **Abstains when confidence is low**
 
-    * Simple → TF-IDF
-    * Semantic → Hybrid Search
-    * Complex → RAG
+* 🔁 **Feedback Loop**
 
-* ⚠️ **Confidence-Based Fallback**
-
-  * Low-confidence queries routed to hybrid search for robustness
-
-* 📊 **Evaluation & Metrics**
-
-  * Precision@K, Mean Reciprocal Rank (MRR)
-  * A/B testing (baseline vs routing system)
-  * Latency tracking per query type
-
-* ⚡ **Cost Optimization**
-
-  * Reduces unnecessary use of expensive pipelines (RAG/LLM)
-
-* 🌐 **API + UI**
-
-  * FastAPI backend
-  * Streamlit interactive interface
+  * Logs failed queries
+  * Enables system improvement over time
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-User Query
-   ↓
+Query
+  ↓
 Intent Classifier
-   ↓
-Confidence Check
-   ↓
-Routing Layer
-   ├── TF-IDF (Simple Queries)
-   ├── Hybrid Search (Semantic Queries)
-   └── RAG Pipeline (Complex Queries)
-   ↓
-Final Results / Answer
+  ↓
+Router
+ ├── TF-IDF (fast path)
+ ├── Hybrid Search (semantic)
+ └── RAG (complex queries)
+        ↓
+   Answer Generation
+        ↓
+   Quality + Faithfulness Check
+        ↓
+   Vague Query Filter
+        ↓
+   Trust Score Decision
+        ↓
+   Answer / Abstain
 ```
 
 ---
 
-## 📂 Project Structure
+## 📊 Evaluation Results
+
+| Model       | Precision@5 | MRR   |
+| ----------- | ----------- | ----- |
+| TF-IDF      | 0.157       | 0.279 |
+| Hybrid      | 0.557       | 0.637 |
+| Hybrid + QE | 0.529       | 0.643 |
+
+### 🔥 Key Insights
+
+* ~3.5× improvement in Precision over TF-IDF
+* ~2.3× improvement in ranking quality (MRR)
+* Query Expansion improves ranking but may introduce noise
+
+---
+
+## 🧪 Reliability Testing
+
+The system was tested on noisy and invalid queries:
+
+| Query Type    | Behavior   |
+| ------------- | ---------- |
+| Random input  | ✅ Abstains |
+| Vague queries | ✅ Abstains |
+| Valid queries | ✅ Answers  |
+
+👉 The system **knows when it does not know**, reducing hallucinations.
+
+---
+
+## ⚙️ Tech Stack
+
+* Python
+* FAISS (vector search)
+* Sentence Transformers (embeddings)
+* Scikit-learn (TF-IDF)
+* FastAPI (API deployment)
+* Streamlit (UI)
+* OpenAI API (optional LLM integration)
+
+---
+
+## 📁 Project Structure
 
 ```
-NLP/
-├── data/
-├── processed/
-├── src/
-│   ├── tf_idf.py
-│   ├── embedding.py
-│   ├── faiss_index.py
-│   ├── hybrid_search.py
-│   ├── query_expansion.py
-│   ├── rag.py
-│   ├── intent_classifier.py
-│   ├── router.py
-│   ├── stats.py
-│   ├── eval.py
-│   ├── eval_runner.py
-│   ├── ab_test.py
-│   └── api.py
-├── app.py   # Streamlit UI
-└── README.md
+src/
+ ├── router.py
+ ├── rag.py
+ ├── hybrid_search.py
+ ├── tf_idf.py
+ ├── embedding.py
+ ├── query_expansion.py
+ ├── intent_classifier.py
+ ├── quality_check.py
+ ├── faithfulness.py
+ ├── eval.py
+ ├── eval_runner.py
+ └── ...
 ```
 
 ---
 
-## ⚙️ Setup & Installation
+## ▶️ How to Run
+
+### 1. Build Indexes
 
 ```bash
-git clone <your-repo-url>
-cd NLP
-
-python -m venv venv
-source venv/bin/activate
-
-pip install -r requirements.txt
+python -m src.search
+python -m src.semantic_search
 ```
 
----
-
-## ▶️ Run the System
-
-### 1️⃣ Data Pipeline
-
-```bash
-python -m src.pipeline
-```
-
-### 2️⃣ Build Indexes
-
-```bash
-python -m src.search          # TF-IDF
-python -m src.sementic_search # FAISS
-```
-
-### 3️⃣ Start API
+### 2. Run API
 
 ```bash
 uvicorn src.api:app --reload
 ```
 
-### 4️⃣ Launch UI (Optional)
+### 3. Run Streamlit UI
 
 ```bash
 streamlit run app.py
@@ -137,71 +156,75 @@ streamlit run app.py
 
 ---
 
-## 🔍 API Endpoints
+## 🧪 Run Evaluation
 
-* `/search` → Basic retrieval
-* `/rag` → RAG-based answer
-* `/smart_search` → Intent-aware routing
-* `/stats` → Routing distribution + latency
-
----
-
-## 📊 A/B Testing Results
-
-| System         | Avg Latency    |
-| -------------- | -------------- |
-| Always Hybrid  | 52.34 ms       |
-| Routing System | **36.49 ms** ✅ |
-
-### 🔥 Key Insight:
-
-* ~30% reduction in latency using routing
-* Majority of queries handled by lightweight retrieval
-* Expensive RAG used only when necessary
-
----
-
-## 📈 Routing Distribution Example
-
-```
-TF-IDF: 5 queries
-Hybrid: 3 queries
-RAG: 1 query
-Fallback: 3 queries
+```bash
+python -m src.eval_runner
 ```
 
 ---
 
-## 🧠 Key Learnings
+## 🔍 Example Query
 
-* Naive query expansion can degrade performance due to noise
-* Hybrid retrieval improves relevance over lexical methods
-* Intent-based routing significantly reduces latency and cost
-* Most queries do not require full RAG pipeline
+```bash
+GET /smart_search?query=what is machine learning
+```
+
+---
+
+## 💡 Key Learnings
+
+* Hybrid retrieval significantly outperforms lexical search
+* Query expansion improves recall but must be controlled
+* Faithfulness alone is insufficient — semantic correctness matters
+* **Confidence ≠ correctness**
+* Reliability layers are critical for production systems
 
 ---
 
 ## 🎯 Future Improvements
 
-* Integrate real LLM (OpenAI / Ollama)
-* Train ML-based intent classifier
-* Add re-ranking (cross-encoder)
-* Deploy using Docker / AWS
-
----
-
-## 🏆 Resume Highlights
-
-* Built a hybrid retrieval system (TF-IDF + FAISS)
-* Designed intent-aware routing for cost and latency optimization
-* Achieved ~30% latency reduction via A/B testing
-* Implemented full RAG pipeline with evaluation metrics (MRR, Precision@K)
+* LLM-based answer generation
+* Better intent classification (ML-based)
+* Learning-based query expansion
+* Reinforcement learning from feedback logs
 
 ---
 
 ## 👨‍💻 Author
 
 **Abhay Raj Singh**
-ISI Kolkata M.Tech CS Student(Machine Learning & Data Science)
+M.Tech (Machine Learning & Data Science), ISI Kolkata
 
 ---
+
+
+
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+    A[User Query] --> B[Intent Classifier]
+
+    B -->|Simple| C[TF-IDF Retrieval]
+    B -->|Semantic| D[Hybrid Search (TF-IDF + FAISS)]
+    B -->|Complex| E[RAG Pipeline]
+
+    D --> F[Top-K Documents]
+    C --> F
+    E --> F
+
+    F --> G[Answer Generation]
+
+    G --> H[Quality Score]
+    G --> I[Faithfulness Score]
+
+    H --> J[Trust Score]
+    I --> J
+
+    J --> K{Decision}
+
+    K -->|High Trust| L[Return Answer]
+    K -->|Low Trust| M[Abstain]
+
+    M --> N[Log Failure (Feedback Loop)]
