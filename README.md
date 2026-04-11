@@ -1,10 +1,10 @@
-# 🧠 Intelligent RAG System with Cost-Aware Query Routing
+# Intelligent RAG System with Cost-Aware Query Routing
 
 An end-to-end **production-style Retrieval-Augmented Generation (RAG) system** with intelligent query routing, hybrid retrieval, and reliability-aware decision making.
 
 ---
 
-## 📌 System Architecture
+## System Architecture
 
 The following diagram illustrates the complete pipeline of the intelligent RAG system, including query routing, hybrid retrieval, and reliability mechanisms.
 
@@ -18,49 +18,49 @@ The following diagram illustrates the complete pipeline of the intelligent RAG s
 
 
 
-## 🚀 Key Features
+## Key Features
 
-* 🔀 **Intent-Aware Query Routing**
+**Intent-Aware Query Routing**
 
   * Classifies queries into *simple*, *semantic*, and *complex*
   * Dynamically routes to TF-IDF, Hybrid Search, or RAG
 
-* 🔎 **Hybrid Retrieval (TF-IDF + FAISS)**
+* **Hybrid Retrieval (TF-IDF + FAISS)**
 
   * Combines lexical and semantic search
   * Uses score normalization + weighted fusion
 
-* 🧠 **Query Expansion**
+* **Query Expansion**
 
   * Expands queries using domain-specific heuristics
   * Improves recall for semantic queries
 
-* ⚡ **Cost-Aware Execution**
+* **Cost-Aware Execution**
 
   * Avoids expensive RAG calls for simple queries
   * Reduces latency via adaptive routing
 
-* 🤖 **RAG Pipeline**
+* **RAG Pipeline**
 
   * Retrieves relevant chunks
   * Generates extractive answers
   * Avoids hallucination using quality checks
 
-* 🛡️ **Reliability Layer (CORE CONTRIBUTION)**
+* **Reliability Layer (CORE CONTRIBUTION)**
 
   * Faithfulness scoring
   * Hallucination detection
   * Trust score-based decision making
   * **Abstains when confidence is low**
 
-* 🔁 **Feedback Loop**
+* **Feedback Loop**
 
   * Logs failed queries
   * Enables system improvement over time
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 Query
@@ -85,7 +85,7 @@ Router
 
 ---
 
-## 📊 Evaluation Results
+## Evaluation Results
 
 | Model       | Precision@5 | MRR   |
 | ----------- | ----------- | ----- |
@@ -93,7 +93,7 @@ Router
 | Hybrid      | 0.557       | 0.637 |
 | Hybrid + QE | 0.529       | 0.643 |
 
-### 🔥 Key Insights
+### Key Insights
 
 * ~3.5× improvement in Precision over TF-IDF
 * ~2.3× improvement in ranking quality (MRR)
@@ -101,21 +101,21 @@ Router
 
 ---
 
-## 🧪 Reliability Testing
+## Reliability Testing
 
 The system was tested on noisy and invalid queries:
 
 | Query Type    | Behavior   |
 | ------------- | ---------- |
-| Random input  | ✅ Abstains |
-| Vague queries | ✅ Abstains |
-| Valid queries | ✅ Answers  |
+| Random input  | Abstains |
+| Vague queries | Abstains |
+| Valid queries | Answers  |
 
-👉 The system **knows when it does not know**, reducing hallucinations.
+The system **knows when it does not know**, reducing hallucinations.
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 * Python
 * FAISS (vector search)
@@ -147,7 +147,7 @@ src/
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 ### 1. Build Indexes
 
@@ -170,7 +170,7 @@ streamlit run app.py
 
 ---
 
-## 🧪 Run Evaluation
+## Run Evaluation
 
 ```bash
 python -m src.eval_runner
@@ -178,7 +178,7 @@ python -m src.eval_runner
 
 ---
 
-## 🔍 Example Query
+## Example Query
 
 ```bash
 GET /smart_search?query=what is machine learning
@@ -186,7 +186,7 @@ GET /smart_search?query=what is machine learning
 
 ---
 
-## 💡 Key Learnings
+## Key Learnings
 
 * Hybrid retrieval significantly outperforms lexical search
 * Query expansion improves recall but must be controlled
@@ -196,7 +196,7 @@ GET /smart_search?query=what is machine learning
 
 ---
 
-## 🎯 Future Improvements
+## Future Improvements
 
 * LLM-based answer generation
 * Better intent classification (ML-based)
@@ -205,7 +205,7 @@ GET /smart_search?query=what is machine learning
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Abhay Raj Singh**
 M.Tech (Machine Learning & Data Science), ISI Kolkata
